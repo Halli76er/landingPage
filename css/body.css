@@ -1,0 +1,13 @@
+body {
+    background-color: #3DA4AF;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "header" "main" "footer";
+}
+@media (min-width: 768px){
+    body {
+        grid-template-columns: 2fr 5fr 1fr;
+        background-color: #ebebeb;
+    }
+}
+

@@ -1,0 +1,30 @@
+main{
+    background-color: #3DA4AF;
+    margin-top: 12.5vh;
+}
+@media (min-width: 768px){
+    main{
+        background-color: #EBEBEB;
+        grid-area: 1/2/1/3;
+        padding: 2rem;
+        margin-top: 0;
+    }
+    section#blog, section#moreposts{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    section.blog_posts_single .card{
+        grid-column: 1/-1;
+    }
+}
+@media (min-width: 1440px){
+    section#blog, section#moreposts{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (min-width: 2560px){
+    section#blog, section#moreposts{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
