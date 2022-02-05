@@ -23,12 +23,13 @@
  * 
 */
 
-//Get the button:
+// Get the button:
 const mybutton = document.getElementById("myButton");
+// Get the button class to top event
 const scrollTopButton = document.querySelector(".myButtonClass");
-//Get the ul 
+// Get the ul 
 const navBarList = document.querySelector('#navbar__list');
-//Get the sections 
+// Get the sections 
 const sections = document.querySelectorAll('[data-nav]');
 
 /**
@@ -37,7 +38,19 @@ const sections = document.querySelectorAll('[data-nav]');
  * 
 */
 
-// build the Navigation auto sections
+// link click menu and smooth scrolling
+function smoothScroll(e) {
+	e.preventDefault();
+	if (e.target.dataset.nav) {
+    console.log(e.target.dataset.nav);
+		document.getElementById(`${e.target.dataset.nav}`).scrollIntoView(
+			{
+			behavior:"smooth",
+			duration: 2500
+			}
+		)
+	}
+}
 
 /**
  * End Helper Functions
@@ -45,8 +58,9 @@ const sections = document.querySelectorAll('[data-nav]');
  * 
 */
 
-// build the nav
-function navBarSections () {
+// build the navigation auto sections
+function navBarMenuSections () {
+  // forEach to go over all section with data-nav 
   sections.forEach((section, num) =>{
     // declare the data-variables
     let listItem = document.createElement('li');
@@ -69,8 +83,6 @@ function navBarSections () {
 }
 
 // Add class 'active' to section when near top of viewport
-
-
 
 /* 
 *  scrolling > 500px
@@ -101,8 +113,8 @@ function topFunction() {
 */
 scrollTopButton.addEventListener("click", topFunction);
 // Build menu 
-document.addEventListener('DOMContentLoaded', navBarSections);
+document.addEventListener('DOMContentLoaded', navBarMenuSections);
 // Scroll to section on link click
-
+navBarList.addEventListener('click', smoothScroll);
 // Set sections as active
 
