@@ -1,24 +1,4 @@
 /**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
- * 
-*/
-
-/**
- * Comments should be present at the beginning of each procedure and class.
- * Great to have comments before crucial code sections within the procedure.
-*/
-
-/**
  * Define Global Variables
  * 
 */
@@ -74,16 +54,27 @@ function navBarMenuSections () {
     // listItem get a link as a child
     listItem.appendChild(link);
     // link gets the title text from data-nav
-    link.textContent = linkTitle;
+    link.innerHTML = linkTitle;
     //set attributes for target and add class to link
     link.setAttribute("data-nav", `${linkTarget}`);
     link.setAttribute("href", `#${linkTarget}`);
     link.classList.add('blog_link_menu');
   });
 }
-
 // Add class 'active' to section when near top of viewport
-
+function sectionActiveState() {
+      sections.forEach((section) =>{
+        let clickLink = navBarList.querySelector(`[data-nav=${section.id}]`);
+        let sectionView = section.getBoundingClientRect();
+        if (sectionView.top <= 150 && sectionView.bottom >= 100){
+          section.classList.add('active-section');
+          clickLink.classList.add('active-link');
+        }else{
+          section.classList.remove('active-section');
+          clickLink.classList.remove('active-link');
+        }
+      });
+}
 /* 
 *  scrolling > 500px
 *  from the top document
@@ -117,4 +108,4 @@ document.addEventListener('DOMContentLoaded', navBarMenuSections);
 // Scroll to section on link click
 navBarList.addEventListener('click', smoothScroll);
 // Set sections as active
-
+window.addEventListener('scroll', sectionActiveState);

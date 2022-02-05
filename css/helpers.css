@@ -32,6 +32,23 @@ span.button{
 span.button a{
     color: #3DA4AF;
 }
+main section.active-section article.card{
+    box-shadow: none;
+}
+main section.active-section article.card h3{
+    color: #3DA4AF;
+    font-weight: 700;
+}
+main section.active-section.card{
+    box-shadow: none;
+}
+main section.active-section.card h3{
+    color: #3DA4AF;
+    font-weight: 700;
+}
+li a.active-link{
+    text-decoration: underline;
+}
 a:-webkit-any-link {
     color: #2d2d25;
     cursor: pointer;
