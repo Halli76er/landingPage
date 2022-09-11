@@ -20,6 +20,9 @@ main section{
 }
 section.blog_newsletter{
     margin-top: 2rem;
+    min-height: 20vh;
+    align-items: center;
+    row-gap: 1rem;
 }
 .navigation {
     position: fixed;
